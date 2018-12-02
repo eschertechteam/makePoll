@@ -1,0 +1,129 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>Test Title</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>2018-11-21T00:00:00Z</startDate>
+<endDate>2018-11-22T00:00:00Z</endDate>
+<id>10951795526732178003</id>
+<property name="admins">FeeFiFoeFum</property>
+<message name="title" lang="en">Test Title</message>
+<message name="intro" lang="en">Click the buttons to vote to Yes, Abstain, or No on the following inititives. The statements were sent to you in an email.</message>
+<message name="jump-text" lang="en">RR1 test jump text</message>
+<message name="return-text" lang="en">RR1 test return text</message>
+<auth>local</auth>
+
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>10951795526732178004</id>
+    
+    <message name="text" lang="en">First Question</message>
+
+    
+    <option>
+    <id>10951795526732178005</id>
+    
+    <message name="text" lang="en">Person 1</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178006</id>
+    
+    <message name="text" lang="en">Person 2</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178007</id>
+    
+    <message name="text" lang="en">Person 3</message>
+    </option>
+
+    
+</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>10951795526732178008</id>
+    
+    <message name="text" lang="en">Second Question</message>
+
+    
+    <option>
+    <id>10951795526732178009</id>
+    
+    <message name="text" lang="en">Person 4</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178010</id>
+    
+    <message name="text" lang="en">Person 5</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178011</id>
+    
+    <message name="text" lang="en">Person 6</message>
+    </option>
+
+    
+</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>10951795526732178012</id>
+    
+    <message name="text" lang="en">Third Question</message>
+
+    
+    <option>
+    <id>10951795526732178013</id>
+    
+    <message name="text" lang="en">Person 7</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178014</id>
+    
+    <message name="text" lang="en">Person 8</message>
+    </option>
+
+    
+    <option>
+    <id>10951795526732178015</id>
+    
+    <message name="text" lang="en">Person 9</message>
+    </option>
+
+    
+</question>
+
+</configuration>
+</election>
+</SecurePoll>

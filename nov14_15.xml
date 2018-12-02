@@ -1,0 +1,80 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>House Meeting Ballot for November 14/15, 2018</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>2018-11-14T00:00:00Z</startDate>
+<endDate>2019-11-18T11:30:00Z</endDate>
+<id>100</id>
+<property name="admins">FeeFiFoeFum</property>
+<message name="title" lang="en">Voting Ballot for House Meeting of November 14
+</message>
+<message name="intro" lang="en">Click the buttons to vote Yes, Abstain, or No
+</message>
+<message name="jump-text" lang="en">Nov14/15 jump text</message>
+<message name="return-text" lang="en">Nov14/15 return text</message>
+<auth>local</auth>
+<question>
+<property name="min-score">-1</property>
+<property name="max-score">1</property>
+<property name="column-label-msgs">yes</property>
+<property name="default-score">0</property>
+<message name="column-1" lang="en">No</message>
+<message name="column0" lang="en">Abstain</message>
+<message name="column+1" lang="en">Yes</message>
+<id>101</id>
+<message name="text" lang="en">House Release Charges</message>
+<option>
+<id>102</id>
+<message name="text" lang="en">Sam Wallace</message>
+</option>
+<option>
+<id>103</id>
+<message name="text" lang="en">Anton Huber</message>
+</option>
+<option>
+<id>104</id>
+<message name="text" lang="en">Brian Domanski</message>
+</option>
+</question>
+
+<question>
+<property name="min-score">-1</property>
+<property name="max-score">1</property>
+<property name="column-label-msgs">yes</property>
+<property name="default-score">0</property>
+<message name="column-1" lang="en">No</message>
+<message name="column0" lang="en">Abstain</message>
+<message name="column+1" lang="en">Yes</message>
+<id>110></id>
+<message name="text" lang="en">Work/Food Release</message>
+<option>
+<id>111</id>
+<message name="text" lang="en">Amy Bennett</message>
+</option>
+</question>
+
+<question>
+<property name="min-score">-1</property>
+<property name="max-score">1</property>
+<property name="column-label-msgs">yes</property>
+<property name="default-score">0</property>
+<message name="column-1" lang="en">No</message>
+<message name="column0" lang="en">Abstain</message>
+<message name="column+1" lang="en">Yes</message>
+<id>120</id>
+<message name="text" lang="en">Non-Student Approval</message>
+<option>
+<id>121</id>
+<message name="text" lang="en">Derek Gonyon</message>
+</option>
+<option>
+<id>122</id>
+<message name="text" lang="en">Pedro Cooper</message>
+</option>
+</question>
+</configuration>
+</election>
+</SecurePoll>
