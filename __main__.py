@@ -6,6 +6,7 @@ import jinja2
 import uuid
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+from datetime import datetime
 
 scope = ['https://spreadsheets.google.com/feeds',
 		 'https://www.googleapis.com/auth/drive']
@@ -38,23 +39,20 @@ FORM_NAME = "Escher_Poll_{}_{}_{}".format('01', '23', '19')
 """
 	{
 	"type":
+	"out_name":
+	"template":
 	"context": {
-	"title":
-	"startDate":
-	"endDate":
-	"id":
-	"admins":
-	"title":
-	"intro":
-	"questions": {"title": , "options": []
-	
-	
+		"title":
+		"startDate":
+		"endDate":
+		"id":
+		"admins":
+		"title":
+		"intro":
+		"questions": {"title": , "options": []
 	}
-	
 	}
 	"""
-
-
 """
 	Build xml file for wiki poll for House Votes.
 	"""
@@ -86,90 +84,110 @@ def getForm():
 # @click.argument('input_dir', required=True)
 def main(verbose):
 	"""Templated xml generator for SecurePoll."""
-	# try:
-	
-	# worksheet object to get data from form
-	wks = getForm()
-	
-	# get last submitted entry of spreadsheet (last submitted form)
-	first_empty = next_available_row(wks)
-	last_row = int(first_empty) - 1
-	last_row = wks.row_values(last_row)
-	
-	meetDate, startDate, endDate, proposals, nonstudents, tempstays = last_row[1], last_row[2], last_row[3], last_row[4], last_row[5], last_row[6]
-	
-	config = {}
-	config["type"] = "3-way"
-	
-	"""
+	try:
 		
+		# worksheet object to get data from form
+		wks = getForm()
+		
+		# get last submitted entry of spreadsheet (last submitted form)
+		first_empty = next_available_row(wks)
+		last_row = int(first_empty) - 1
+		last_row = wks.row_values(last_row)
+		
+		meetDate, startDate, endDate, props, nonstudents, tempstays = last_row[1], last_row[2], last_row[3], last_row[4], last_row[5], last_row[6]
+		
+		config = {}
+		config["type"] = "3-way"
+		config["out_name"] = meetDate + ".xml"
+		config["template"] = "3way-test.xml"
+		
+		context = {}
+		
+		
+		context["title"] = "Voting Ballot for House Meeting - " + datetime.strptime(meetDate, '%m-%d-%Y').strftime('%d/%m/%Y')
+		context["startDate"] = startDate
+		context["endDate"] = endDate
+		context["id"] = uuid.uuid1().int & (1<<64)-1
+		context["admins"] = "FeeFiFoeFum"
+		context["intro"] = "Click the buttons to vote Yes, Abstain, or No. Information on all proposals can be found in the email."
+		context["questions"] = []
+
+		proposals = {}
+		proposals["title"] = "House Proposals"
+		proposals["options"] = [x.strip() for x in props.split(',')]
+		context["questions"].append(proposals)
+		
+		approvals = {}
+		approvals["title"] = "Non-Student Approval"
+		approvals["options"] = [x.strip() for x in nonstudents.split(',')]
+		context["questions"].append(approvals)
+		
+		temps = {}
+		temps["title"] = "Temp Stays"
+		temps["options"] = [x.strip() for x in tempstays.split(',')]
+		context["questions"].append(temps)
+		
+		
+		
+		config["context"] = context
+		
+		print(config)
+		
+		# Get template and render template
 		input_dir = os.path.dirname(os.path.abspath(__file__))
 		template_dir = input_dir + '/templates'
 		
 		output_location = os.path.join(input_dir, 'out')
 		
 		if not os.path.isdir(output_location):
-		os.mkdir(output_location)
-		
-		with open('config.json') as json_data:
-		data = json.load(json_data)
-		
-		print(data)
-		print(type(data))
-		
-		data = data[0]
-		
-		
-		new_id = uuid.uuid1().int & (1<<64)-1
-		print(new_id)
-		data['context']['id'] = new_id
-		print(data)
-		print(type(data))
-		
+			os.mkdir(output_location)
+	
 		template_env = jinja2.Environment(
-		loader=jinja2.FileSystemLoader(template_dir),
-		autoescape=jinja2.select_autoescape(['html', 'xml']),
+										  loader=jinja2.FileSystemLoader(template_dir),
+										  autoescape=jinja2.select_autoescape(['html', 'xml']),
 		)
 		
-		out_file = os.path.join(output_location, data['out_name'])
+		out_file = os.path.join(output_location, config['out_name'])
 		
-		template = template_env.get_template(data['template'])
-		template_out = template.render(data['context'])
+		template = template_env.get_template(config['template'])
+		
+		template_out = template.render(config['context'])
+		
+		print(out_file)
 		
 		with open(out_file, 'w') as file:
-		file.write(template_out)
-		
+			file.write(template_out)
+
 		if verbose:
-		print('Rendered ' + page['template'] + ' -> ' + output_file)
+			print('Rendered ' + page['template'] + ' -> ' + output_file)
 		
-		except jinja2.UndefinedError:
+	except jinja2.UndefinedError:
 		print('Error_Jinja: Template tried to operate on Undefined')
 		exit(1)
 		
-		except jinja2.TemplateNotFound:
+	except jinja2.TemplateNotFound:
 		print('Error_Jinja: Template not found')
 		exit(1)
 		
-		except jinja2.TemplateAssertionError:
+	except jinja2.TemplateAssertionError:
 		print('Error_Jinja: Assertion error')
 		exit(1)
 		
-		except jinja2.TemplateSyntaxError:
+	except jinja2.TemplateSyntaxError:
 		print('Error_Jinja: Template syntax error')
 		exit(1)
 		
-		except jinja2.TemplateError:
+	except jinja2.TemplateError:
 		print('Error_Jinja: Template Error')
 		exit(1)
 		
-		except json.JSONDecodeError:
+	except json.JSONDecodeError:
 		print('Error_JSON: Decoding error')
 		exit(1)
 		
-		except FileNotFoundError:
+	except FileNotFoundError:
 		print('Error_FileNotFound: could not find file')
 		exit(1)
-		"""
 
 if __name__ == "__main__":
 	# pylint: disable=no-value-for-parameter
