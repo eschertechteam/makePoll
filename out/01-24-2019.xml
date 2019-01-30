@@ -1,0 +1,122 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>Voting Ballot for House Meeting - 24/01/2019</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>1/24/2019 21:00:00</startDate>
+<endDate>1/25/2019 23:59:00</endDate>
+<id>9937641185643684435</id>
+<property name="admins">FeeFiFoeFum</property>
+<message name="title" lang="en">Voting Ballot for House Meeting - 24/01/2019</message>
+<message name="intro" lang="en">Click the buttons to vote Yes, Abstain, or No. Information on all proposals can be found in the email.</message>
+<message name="jump-text" lang="en">RR1 test jump text</message>
+<message name="return-text" lang="en">RR1 test return text</message>
+<auth>local</auth>
+
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>9937641185643684436</id>
+    
+    <message name="text" lang="en">House Proposals</message>
+
+    
+    <option>
+    <id>9937641185643684437</id>
+    
+    <message name="text" lang="en">snow thrower</message>
+    </option>
+
+    
+    <option>
+    <id>9937641185643684438</id>
+    
+    <message name="text" lang="en">tube and sled budget</message>
+    </option>
+
+    
+</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>9937641185643684439</id>
+    
+    <message name="text" lang="en">Non-Student Approval</message>
+
+    
+    <option>
+    <id>9937641185643684440</id>
+    
+    <message name="text" lang="en">a</message>
+    </option>
+
+    
+    <option>
+    <id>9937641185643684441</id>
+    
+    <message name="text" lang="en">b</message>
+    </option>
+
+    
+    <option>
+    <id>9937641185643684442</id>
+    
+    <message name="text" lang="en">c</message>
+    </option>
+
+    
+</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>9937641185643684443</id>
+    
+    <message name="text" lang="en">Temp Stays</message>
+
+    
+    <option>
+    <id>9937641185643684444</id>
+    
+    <message name="text" lang="en">1</message>
+    </option>
+
+    
+    <option>
+    <id>9937641185643684445</id>
+    
+    <message name="text" lang="en">2</message>
+    </option>
+
+    
+    <option>
+    <id>9937641185643684446</id>
+    
+    <message name="text" lang="en">3</message>
+    </option>
+
+    
+</question>
+
+</configuration>
+</election>
+</SecurePoll>
