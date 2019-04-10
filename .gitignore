@@ -2,3 +2,5 @@ token.json
 credentials.json
 makepoll-f158d926816b.json
 .DS_Store
+
+makePoll\.egg-info/
