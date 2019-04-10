@@ -16,7 +16,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 
 # CRED should be file path to the json file of the service account
 # made by going to Google API > Create Credentials > Service Account > JSON
-CRED = os.path.join(os.path.dirname(__file__), 'makepoll-f158d926816b.json')
+CRED = os.path.join(os.path.dirname(__file__), 'makepoll-9b8df964291c.json')
 REPLACE = os.path.join(os.path.dirname(__file__), 'REPLACE')
 LASTPOLLID = os.path.join(os.path.dirname(__file__), 'LASTPOLLID')
 
