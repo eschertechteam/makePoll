@@ -1,0 +1,129 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>Voting Ballot for House Meeting - 1/30/2019</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>2019-01-30T9:00:00Z</startDate>
+<endDate>2019-01-30T23:59:00Z</endDate>
+<id>33101493</id>
+<property name="admins">FeeFiFoeFum</property>
+<message name="title" lang="en">Voting Ballot for House Meeting - 1/30/2019</message>
+<message name="intro" lang="en">Click the buttons to vote Yes, Abstain, or No. Information on all proposals can be found in the email.</message>
+<message name="jump-text" lang="en">jump to ballot</message>
+<message name="return-text" lang="en">return to ballot</message>
+<auth>local</auth>
+
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>33101494</id>
+    
+    <message name="text" lang="en">House Proposals</message>
+
+    
+    <option>
+    <id>33101495</id>
+    
+    <message name="text" lang="en">house proposal 1</message>
+    </option>
+
+    
+    <option>
+    <id>33101496</id>
+    
+    <message name="text" lang="en">house proposal 2</message>
+    </option>
+
+    
+    <option>
+    <id>33101497</id>
+    
+    <message name="text" lang="en">house proposal 3</message>
+    </option>
+
+    
+	</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>33101498</id>
+    
+    <message name="text" lang="en">Non-Student Approval</message>
+
+    
+    <option>
+    <id>33101499</id>
+    
+    <message name="text" lang="en">non student 1</message>
+    </option>
+
+    
+    <option>
+    <id>33101500</id>
+    
+    <message name="text" lang="en">non student 2</message>
+    </option>
+
+    
+    <option>
+    <id>33101501</id>
+    
+    <message name="text" lang="en">non student 3</message>
+    </option>
+
+    
+	</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>33101502</id>
+    
+    <message name="text" lang="en">Temp Stays</message>
+
+    
+    <option>
+    <id>33101503</id>
+    
+    <message name="text" lang="en">temp stay 1</message>
+    </option>
+
+    
+    <option>
+    <id>33101504</id>
+    
+    <message name="text" lang="en">temp stay 2</message>
+    </option>
+
+    
+    <option>
+    <id>33101505</id>
+    
+    <message name="text" lang="en">temp stay 3</message>
+    </option>
+
+    
+	</question>
+
+</configuration>
+</election>
+</SecurePoll>

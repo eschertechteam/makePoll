@@ -1,0 +1,87 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>Voting Ballot for House Meeting - 3/19/2019</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>2019-03-19T07:00:00Z</startDate>
+<endDate>2019-03-20T20:00:00Z</endDate>
+<id>12605753</id>
+<property name="admins">FeeFiFoeFum</property>
+<message name="title" lang="en">Voting Ballot for House Meeting - 3/19/2019</message>
+<message name="intro" lang="en">Click the buttons to vote Yes, Abstain, or No. Information on all proposals can be found in the email. BY CLICKING 'SUBMIT VOTE' YOU CONFIRM YOU HAVE READ THE MEETING MINUTES.</message>
+<message name="jump-text" lang="en">jump to ballot</message>
+<message name="return-text" lang="en">return to ballot</message>
+<auth>local</auth>
+
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>12605754</id>
+    
+    <message name="text" lang="en">House Proposals</message>
+
+    
+    <option>
+    <id>12605755</id>
+    
+    <message name="text" lang="en">test</message>
+    </option>
+
+    
+	</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>12605756</id>
+    
+    <message name="text" lang="en">Non-Student Approval</message>
+
+    
+    <option>
+    <id>12605757</id>
+    
+    <message name="text" lang="en">test</message>
+    </option>
+
+    
+	</question>
+
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>12605758</id>
+    
+    <message name="text" lang="en">Temp Stays</message>
+
+    
+    <option>
+    <id>12605759</id>
+    
+    <message name="text" lang="en">test</message>
+    </option>
+
+    
+	</question>
+
+</configuration>
+</election>
+</SecurePoll>

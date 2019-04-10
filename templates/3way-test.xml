@@ -1,0 +1,44 @@
+<SecurePoll>
+<election>
+<configuration>
+<title>{{title}}</title>
+<ballot>radio-range</ballot>
+<tally>histogram-range</tally>
+<primaryLang>en</primaryLang>
+<startDate>{{startDate}}</startDate>
+<endDate>{{endDate}}</endDate>
+<id>{{id}}</id>
+<property name="admins">{{admins}}</property>
+<message name="title" lang="en">{{title}}</message>
+<message name="intro" lang="en">{{intro}} BY CLICKING 'SUBMIT VOTE' YOU CONFIRM YOU HAVE READ THE MEETING MINUTES.</message>
+<message name="jump-text" lang="en">jump to ballot</message>
+<message name="return-text" lang="en">return to ballot</message>
+<auth>local</auth>
+{% set counter = ['1'] %}
+{% for question in questions %}
+    <question>
+    <property name="min-score">-1</property>
+    <property name="max-score">1</property>
+    <property name="column-label-msgs">yes</property>
+    <property name="default-score">0</property>
+    <message name="column-1" lang="en">Oppose</message>
+    <message name="column0" lang="en">Abstain</message>
+    <message name="column+1" lang="en">Support</message>
+    <id>{{id + counter|length}}</id>
+    {% if counter.append('1') %}{% endif %}
+    <message name="text" lang="en">{{question.title}}</message>
+
+    {% for option in question.options %}
+    <option>
+    <id>{{id + counter|length}}</id>
+    {% if counter.append('1') %}{% endif %}
+    <message name="text" lang="en">{{option}}</message>
+    </option>
+
+    {% endfor %}
+	</question>
+{% endfor %}
+</configuration>
+</election>
+</SecurePoll>
+
