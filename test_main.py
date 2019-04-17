@@ -44,13 +44,15 @@ class TestMain(unittest.TestCase):
             self.assertEqual(expected[i], actual[i], 'Wrong time str returned')
 
     def test_checkTime(self):
+        # This could have been so easy with arrow to compare unix timestamps
+        # TODO after possible refactoring
         pass
 
     @patch('uuid.uuid1')
     @patch('make_poll.getForm', return_value=FakeWKS())
     @patch('make_poll.next_available_row', return_value='10')
     def test_get_context(self, mock_row, mock_form, mock_uuid):
-        # TODO: move generate context to its own function
+        # TODO after possible refactoring
         # Patch datetime, uuid, assert on config['context'] 
 
         """        
