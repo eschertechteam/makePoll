@@ -33,15 +33,6 @@ class TestMain():
         actual = [next_available_row(wks) for wks in fake_wks_objs]
         for i in range(len(expected)):
             eq_(expected[i], actual[i], 'Wrong next row index returned')
-        
-
-    @patch('oauth2client.service_account.ServiceAccountCredentials.from_json_keyfile_name')
-    @patch('gspread.authorize')
-    def test_get_form(self, mock_gc, mock_creds):
-        # TODO: Patch service accnt load creds, gspread authorize, assert sheet
-        # expected = 'form_name_str'
-        # mock_gc.open.assert_called_once_with(expected)
-        pass
 
     def test_formatDate(self):
         pass
