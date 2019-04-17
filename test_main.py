@@ -3,11 +3,10 @@ Unit test plan for the make_poll package
 sudo apt-get install python-nose python3-nose
 run by `python3 -m "nose" test_main.py`
 """
-
+import unittest
 from unittest.mock import patch, Mock
-from nose.tools import eq_
 
-from make_poll import next_available_row, getForm
+from make_poll import next_available_row, formatDate
 
 class FakeWKS():
 
@@ -21,9 +20,9 @@ class FakeWKS():
         return self.col_vals
 
     def row_values(self, row_in):
-        return self.wks[0][0]
+        return self.row_vals
 
-class TestMain():
+class TestMain(unittest.TestCase):
     
     def test_next_available_row(self):
         # TODO: Patch wks, assert on available row is expected
@@ -32,10 +31,17 @@ class TestMain():
         expected = ['1', '4', '2', '1']
         actual = [next_available_row(wks) for wks in fake_wks_objs]
         for i in range(len(expected)):
-            eq_(expected[i], actual[i], 'Wrong next row index returned')
+            self.assertEqual(expected[i], actual[i], 'Wrong next row index returned')
 
     def test_formatDate(self):
-        pass
+        # Original function didn't do format check of the incoming str, use arrow?
+        time_strs = ["01/01/70 00:00:00",
+                     "1/1/70 0:00:00"]
+        expected = ["70-01-01T00:00:00Z",
+                    "70-01-01T00:00:00Z"]
+        actual = [formatDate(time_str) for time_str in time_strs]
+        for i in range(len(expected)):
+            self.assertEqual(expected[i], actual[i], 'Wrong time str returned')
 
     def test_checkTime(self):
         pass
