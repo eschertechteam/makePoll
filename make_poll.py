@@ -6,7 +6,6 @@ Original author: Fee Christoph
 import json
 import os
 import logging
-import datetime
 import click
 import jinja2
 import uuid
@@ -161,12 +160,12 @@ def main(verbose, date):
 
 	if len(date) == 3:
 		year = date[0]
-		month = '{:02d}'.format(date[1])
-		day = '{:02d}'.format(date[2])
+		month = '{:02d}'.format(int(date[1]))
+		day = '{:02d}'.format(int(date[2]))
 	else:
-		year = datetime.datetime.now().year
-		month = '{:02d}'.format(datetime.datetime.now().month)
-		day = '{:02d}'.format(datetime.datetime.now().day)
+		year = datetime.now().year
+		month = '{:02d}'.format(datetime.now().month)
+		day = '{:02d}'.format(datetime.now().day)
 
 	# response sheet name
 	form = "Escher_Poll_{month}_{day}_{year}".format(year=year, month=month, day=day)
