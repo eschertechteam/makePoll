@@ -6,3 +6,5 @@ old/
 __pycache__/
 
 *.pyc
+
+*.log
