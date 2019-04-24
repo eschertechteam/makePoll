@@ -78,7 +78,7 @@ class InvalidDateError(Exception):
 # find first empty row N. N - 1 is last row and most recent form entry
 # courtesy of Pedro Lobito on StackOverflow
 def next_available_row(wks):
-	print(wks.col_values(1))
+	logger.debug("column values: {}".format(wks.col_values(1)))
 	str_list = list(filter(None, wks.col_values(1)))  # fastest
 
 	# Note that this is 1-indexed
@@ -89,7 +89,7 @@ def next_available_row(wks):
 def getForm(form):
 	logger.debug("cred file:" + CRED)
 	credentials = ServiceAccountCredentials.from_json_keyfile_name(CRED, scope)
-	logger.info("GETTING FORM")
+	logger.info("GETTING FORM {}".format(form))
 	gc = gspread.authorize(credentials)
 	logger.info("AUTHORIZED")
 	# Sample form response sheet name
@@ -106,7 +106,7 @@ def formatDate(strdate):
 	if len(day) == 1:
 		day = '0' + day
 
-	print(time)
+	logger.debug(time)
 	if len(time) == 7:
 		time = '0' + time
 	return year + '-' + month + '-' + day + 'T' + time + 'Z'
@@ -168,18 +168,18 @@ def sendEmail():
 
 @click.command()
 @click.option('--verbose', '-v', is_flag=True, help='Print more output.')
-@click.option('--date', '-d', nargs=3, help='YEAR MON DAY, e.g. 2019 4 23')
+@click.option('--date', '-d', nargs=3, help='YEAR MON DAY, e.g. 2019 04 23')
 # @click.argument('input_dir', required=True)
 def main(verbose, date):
 
 	if len(date) == 3:
 		year = date[0]
-		month = date[1]
-		day = date[2]
+		month = '{:02d}'.format(date[1])
+		day = '{:02d}'.format(date[2])
 	else:
 		year = datetime.datetime.now().year
-		month = datetime.datetime.now().month
-		day = datetime.datetime.now().day
+		month = '{:02d}'.format(datetime.datetime.now().month)
+		day = '{:02d}'.format(datetime.datetime.now().day)
 
 	# response sheet name
 	form = "Escher_Poll_{month}_{day}_{year}".format(year=year, month=month, day=day)
