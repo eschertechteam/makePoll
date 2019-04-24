@@ -288,7 +288,7 @@ def main(verbose):
 			file.write(template_out)
 
 		if verbose:
-			print('Rendered ' + page['template'] + ' -> ' + output_file)
+			print('Rendered ' + config['template'] + ' -> ' + out_file)
 
 	except jinja2.UndefinedError:
 		print('Error_Jinja: Template tried to operate on Undefined')
